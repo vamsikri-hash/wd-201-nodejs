@@ -1,3 +1,3 @@
-## WD 201 - Server Side Programming with NodeJs
+## L1: Introduction to Node.js
 
-### This repo contains code for the different milestones
+### Sample code written as a part of L1

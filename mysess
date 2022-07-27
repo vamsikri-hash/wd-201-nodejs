@@ -1,0 +1,14 @@
+1 + 1
+x = 2;
+x*3
+function printLog() {
+console.log("Hiii");
+}
+function printLog2() {
+console.log("hello");
+return 3;
+}
+printLog()
+printLog2()
+s = "weiwhe";
+_;
