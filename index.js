@@ -26,8 +26,8 @@ fs.rename("sample.txt", "test.txt", function (err) {
   console.log("File Deleted !");
 }); */
 
-const http = require("http");
-const fs = require("fs");
+/* const http = require("http");
+const fs = require("fs"); */
 
 /* // Using fs
 const server = http.createServer(function (req, res) {
@@ -37,10 +37,40 @@ const server = http.createServer(function (req, res) {
 });
  */
 
-// Using Streams
+/* // Using Streams
 const server = http.createServer(function (req, res) {
   const stream = fs.createReadStream("test.txt");
   stream.pipe(res);
 });
 
-server.listen(3001);
+server.listen(3001); */
+
+/* const readline = require("readline");
+
+const lineDetail = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+lineDetail.question(`Please provide your name - `, (name) => {
+  console.log(`Hi ${name}!`);
+  lineDetail.close();
+}); */
+
+const http = require("http");
+const fs = require("fs");
+const readline = require("readline");
+
+const lineDetail = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+lineDetail.question(`Please provide the full file path - `, (path) => {
+  const server = http.createServer(function (req, res) {
+    const stream = fs.createReadStream(path);
+    stream.pipe(res);
+  });
+  lineDetail.close();
+  server.listen(3000);
+});
