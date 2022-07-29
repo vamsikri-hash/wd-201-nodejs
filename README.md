@@ -1,3 +1,4 @@
-## WD 201 - Server Side Programming with NodeJs
+## L2: Working with NPM
 
-### This repo contains code for the different milestones
+
+### Render html pages using node http server
