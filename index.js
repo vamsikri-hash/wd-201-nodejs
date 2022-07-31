@@ -25,13 +25,7 @@ const lineDetail = readline.createInterface({
   output: process.stdout,
 });
 
-lineDetail.question(
-  `Please provide the full file path for registration form project - `,
-  (path) => {
-    registrationFormProjectPath = path;
-    lineDetail.close();
-  }
-);
+const PORT = 3000;
 
 http
   .createServer((request, response) => {
@@ -58,4 +52,14 @@ http
         break;
     }
   })
-  .listen(3000);
+  .listen(PORT, () => {
+    console.log(`Server started... Please visit localhost:${PORT}`);
+
+    lineDetail.question(
+      `Please provide the full file path for registration form project - `,
+      (path) => {
+        registrationFormProjectPath = path;
+        lineDetail.close();
+      }
+    );
+  });
