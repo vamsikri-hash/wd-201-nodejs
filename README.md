@@ -1,3 +1,1 @@
-## WD 201 - Server Side Programming with NodeJs
-
-### This repo contains code for the different milestones
+## L3 - Todo CLI application using nodejs
