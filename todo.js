@@ -1,44 +1,30 @@
 const todoList = () => {
   all = [];
+
   const add = (todoItem) => {
     all.push(todoItem);
   };
+
   const markAsComplete = (index) => {
     all[index].completed = true;
   };
 
-  const overdue = () => {
-    // Write the date check condition here and return the array of overdue items accordingly.
-    // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-  };
+  const compareDate = (date) =>
+    new Date(date) - new Date(formattedDate(new Date()));
 
-  const dueToday = () => {
-    // Write the date check condition here and return the array of todo items that are due today accordingly.
-    // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-  };
+  const overdue = () =>
+    all.filter((todo) => compareDate(todo.dueDate) < 0 && !todo.completed);
 
-  const dueLater = () => {
-    // Write the date check condition here and return the array of todo items that are due later accordingly.
-    // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-  };
+  const dueToday = () => all.filter((todo) => compareDate(todo.dueDate) === 0);
 
-  const toDisplayableList = (list) => {
-    // Format the To-Do list here, and return the output string as per the format given above.
-    // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-    // return OUTPUT_STRING
-  };
+  const dueLater = () => all.filter((todo) => compareDate(todo.dueDate) > 0);
+
+  const toDisplayableList = (list) =>
+    list.reduce((acc, todo) => {
+      const checkbox = todo.completed ? "[X]" : "[ ]";
+      const displayDate = compareDate(todo.dueDate) === 0 ? "" : todo.dueDate;
+      return acc + `${checkbox}  ${todo.title}  ${displayDate} \n`;
+    }, "");
 
   return {
     all,
