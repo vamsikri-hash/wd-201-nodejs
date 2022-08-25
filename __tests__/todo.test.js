@@ -29,7 +29,7 @@ describe("Todo List Test Suite", () => {
     expect(all.length).toEqual(1);
   });
 
-  test("Should mark a Todo as complete", () => {
+  test("Should mark a todo as complete", () => {
     const { all, markAsComplete, add } = todoList();
     add({
       title: "A test item",
@@ -49,14 +49,14 @@ describe("Todo List Test Suite", () => {
     expect(overdue().length).toEqual(1);
   });
 
-  test("Should list the duetoday todos", () => {
+  test("Should list the due today todos", () => {
     const { all, dueToday, add } = todoList();
     addTestData(add, todos);
     expect(all.length).toEqual(5);
     expect(dueToday().length).toEqual(2);
   });
 
-  test("Should list the duelater todos", () => {
+  test("Should list the due later todos", () => {
     const { all, dueLater, add } = todoList();
     addTestData(add, todos);
     expect(all.length).toEqual(5);
